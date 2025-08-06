@@ -16,5 +16,22 @@ services:
     App\:
         resource: '../src/'
 
+
+    App\DataFixtures\Provider\PasswordProvider:
+        arguments:
+            $passwordHasher: '@security.user_password_hasher'
+        tags:
+            - { name: nelmio_alice.faker.provider }
+
+    App\DataFixtures\Provider\MoroccanProvider:
+        tags:
+            - { name: nelmio_alice.faker.provider }
+
+    # Alias pour compatibilité
+    app.password_provider:
+        alias: App\DataFixtures\Provider\PasswordProvider
+        public: true
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+

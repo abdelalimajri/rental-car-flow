@@ -1,0 +1,83 @@
+App\Entity\Agency:
+    # Agences principales (données fixes)
+    agency_casa_centre:
+        name: 'RentCar Casablanca Centre'
+        slug: 'casablanca-centre'
+        email: 'casa.centre@rentcar.ma'
+        phoneNumber: '+212522334455'
+        address: '123 Boulevard Mohammed V, Centre Ville'
+        city: 'Casablanca'
+        status: 'active'
+        settings:
+            currency: 'MAD'
+            timezone: 'Africa/Casablanca'
+            language: 'fr'
+            business_hours:
+                monday: ['09:00', '18:00']
+                tuesday: ['09:00', '18:00']
+                wednesday: ['09:00', '18:00']
+                thursday: ['09:00', '18:00']
+                friday: ['09:00', '18:00']
+                saturday: ['09:00', '13:00']
+                sunday: null
+
+    agency_rabat_agdal:
+        name: 'RentCar Rabat Agdal'
+        slug: 'rabat-agdal'
+        email: 'rabat.agdal@rentcar.ma'
+        phoneNumber: '+212537567890'
+        address: '45 Avenue de France, Agdal'
+        city: 'Rabat'
+        status: 'active'
+        settings:
+            currency: 'MAD'
+            timezone: 'Africa/Casablanca'
+            language: 'fr'
+            business_hours:
+                monday: ['09:00', '18:00']
+                tuesday: ['09:00', '18:00']
+                wednesday: ['09:00', '18:00']
+                thursday: ['09:00', '18:00']
+                friday: ['09:00', '18:00']
+                saturday: ['09:00', '13:00']
+                sunday: null
+
+    agency_marrakech_gueliz:
+        name: 'RentCar Marrakech Gueliz'
+        slug: 'marrakech-gueliz'
+        email: 'marrakech@rentcar.ma'
+        phoneNumber: '+212524789012'
+        address: '78 Avenue Mohammed VI, Gueliz'
+        city: 'Marrakech'
+        status: 'active'
+        settings:
+            currency: 'MAD'
+            timezone: 'Africa/Casablanca'
+            language: 'fr'
+
+    agency_fes_medina:
+        name: 'RentCar Fès Médina'
+        slug: 'fes-medina'
+        email: 'fes@rentcar.ma'
+        phoneNumber: '+212535345678'
+        address: '12 Avenue Hassan II, Ville Nouvelle'
+        city: 'Fès'
+        status: 'active'
+        settings:
+            currency: 'MAD'
+            timezone: 'Africa/Casablanca'
+            language: 'fr'
+
+    agency_tanger_marina:
+        name: 'RentCar Tanger Marina'
+        slug: 'tanger-marina'
+        email: 'tanger@rentcar.ma'
+        phoneNumber: '+212539456789'
+        address: '56 Boulevard Pasteur, Centre Ville'
+        city: 'Tanger'
+        status: 'active'
+        settings:
+            currency: 'MAD'
+            timezone: 'Africa/Casablanca'
+            language: 'fr'
+

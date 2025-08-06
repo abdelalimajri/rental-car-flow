@@ -1,0 +1,163 @@
+# fixtures/users.yaml - Alice Bundle Format (Corrigé)
+
+App\Entity\User:
+    # Super Admin (sans agence)
+    user_super_admin:
+        username: 'superadmin'
+        email: 'superadmin@rentcar.ma'
+        firstName: 'Mohammed'
+        lastName: 'Admin'
+        phoneNumber: '+212522123456'
+        password: '<hashPassword("superadmin123")>'
+        roles: ['ROLE_SUPER_ADMIN']
+        status: 'active'
+        agency: null
+
+    # Admins des agences principales
+    user_admin_casa:
+        username: 'ahmed.benali'
+        email: 'ahmed.benali@rentcar.ma'
+        firstName: 'Ahmed'
+        lastName: 'Benali'
+        phoneNumber: '+212661234567'
+        password: '<hashPassword("admin123")>'
+        roles: ['ROLE_ADMIN']
+        status: 'active'
+        agency: '@agency_casa_centre'
+
+    user_admin_rabat:
+        username: 'youssef.alami'
+        email: 'youssef.alami@rentcar.ma'
+        firstName: 'Youssef'
+        lastName: 'Alami'
+        phoneNumber: '+212664567890'
+        password: '<hashPassword("admin123")>'
+        roles: ['ROLE_ADMIN']
+        status: 'active'
+        agency: '@agency_rabat_agdal'
+
+    user_admin_marrakech:
+        username: 'khalid.benkirane'
+        email: 'khalid.benkirane@rentcar.ma'
+        firstName: 'Khalid'
+        lastName: 'Benkirane'
+        phoneNumber: '+212666789012'
+        password: '<hashPassword("admin123")>'
+        roles: ['ROLE_ADMIN']
+        status: 'active'
+        agency: '@agency_marrakech_gueliz'
+
+    user_admin_fes:
+        username: 'rachid.elfassi'
+        email: 'rachid.elfassi@rentcar.ma'
+        firstName: 'Rachid'
+        lastName: 'El Fassi'
+        phoneNumber: '+212668901234'
+        password: '<hashPassword("admin123")>'
+        roles: ['ROLE_ADMIN']
+        status: 'active'
+        agency: '@agency_fes_medina'
+
+    user_admin_tanger:
+        username: 'abdellatif.cherkaoui'
+        email: 'abdellatif.cherkaoui@rentcar.ma'
+        firstName: 'Abdellatif'
+        lastName: 'Cherkaoui'
+        phoneNumber: '+212670123456'
+        password: '<hashPassword("admin123")>'
+        roles: ['ROLE_ADMIN']
+        status: 'active'
+        agency: '@agency_tanger_marina'
+
+    # Utilisateurs pour Casablanca
+    user_casa_1:
+        username: 'fatima.zahra'
+        email: 'fatima.zahra@rentcar.ma'
+        firstName: 'Fatima'
+        lastName: 'Zahra'
+        phoneNumber: '+212662345678'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_casa_centre'
+
+    user_casa_2:
+        username: 'omar.bennani'
+        email: 'omar.bennani@rentcar.ma'
+        firstName: 'Omar'
+        lastName: 'Bennani'
+        phoneNumber: '+212663456789'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_casa_centre'
+
+    # Utilisateurs pour Rabat
+    user_rabat_1:
+        username: 'aicha.kadiri'
+        email: 'aicha.kadiri@rentcar.ma'
+        firstName: 'Aicha'
+        lastName: 'Kadiri'
+        phoneNumber: '+212665678901'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_rabat_agdal'
+
+    user_rabat_2:
+        username: 'hassan.tazi'
+        email: 'hassan.tazi@rentcar.ma'
+        firstName: 'Hassan'
+        lastName: 'Tazi'
+        phoneNumber: '+212665987654'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_rabat_agdal'
+
+    # Utilisateurs pour Marrakech
+    user_marrakech_1:
+        username: 'nadia.chraibi'
+        email: 'nadia.chraibi@rentcar.ma'
+        firstName: 'Nadia'
+        lastName: 'Chraibi'
+        phoneNumber: '+212667890123'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_marrakech_gueliz'
+
+    # Utilisateurs pour Fès
+    user_fes_1:
+        username: 'khadija.amrani'
+        email: 'khadija.amrani@rentcar.ma'
+        firstName: 'Khadija'
+        lastName: 'Amrani'
+        phoneNumber: '+212669012345'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_fes_medina'
+
+    # Utilisateurs pour Tanger
+    user_tanger_1:
+        username: 'samira.bennani'
+        email: 'samira.bennani@rentcar.ma'
+        firstName: 'Samira'
+        lastName: 'Bennani'
+        phoneNumber: '+212671234567'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_tanger_marina'
+
+    user_tanger_2:
+        username: 'mustapha.idrissi'
+        email: 'mustapha.idrissi@rentcar.ma'
+        firstName: 'Mustapha'
+        lastName: 'Idrissi'
+        phoneNumber: '+212672345678'
+        password: '<hashPassword("user123")>'
+        roles: ['ROLE_USER']
+        status: 'active'
+        agency: '@agency_tanger_marina'

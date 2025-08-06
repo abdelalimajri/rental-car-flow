@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     zip \
     unzip \
+    nano \
+    iputils-ping \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
