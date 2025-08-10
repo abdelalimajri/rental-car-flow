@@ -3,7 +3,6 @@
 App\Entity\User:
     # Super Admin (sans agence)
     user_super_admin:
-        username: 'superadmin'
         email: 'superadmin@rentcar.ma'
         firstName: 'Mohammed'
         lastName: 'Admin'
@@ -15,7 +14,6 @@ App\Entity\User:
 
     # Admins des agences principales
     user_admin_casa:
-        username: 'ahmed.benali'
         email: 'ahmed.benali@rentcar.ma'
         firstName: 'Ahmed'
         lastName: 'Benali'
@@ -26,7 +24,6 @@ App\Entity\User:
         agency: '@agency_casa_centre'
 
     user_admin_rabat:
-        username: 'youssef.alami'
         email: 'youssef.alami@rentcar.ma'
         firstName: 'Youssef'
         lastName: 'Alami'
@@ -37,7 +34,6 @@ App\Entity\User:
         agency: '@agency_rabat_agdal'
 
     user_admin_marrakech:
-        username: 'khalid.benkirane'
         email: 'khalid.benkirane@rentcar.ma'
         firstName: 'Khalid'
         lastName: 'Benkirane'
@@ -48,7 +44,6 @@ App\Entity\User:
         agency: '@agency_marrakech_gueliz'
 
     user_admin_fes:
-        username: 'rachid.elfassi'
         email: 'rachid.elfassi@rentcar.ma'
         firstName: 'Rachid'
         lastName: 'El Fassi'
@@ -59,7 +54,6 @@ App\Entity\User:
         agency: '@agency_fes_medina'
 
     user_admin_tanger:
-        username: 'abdellatif.cherkaoui'
         email: 'abdellatif.cherkaoui@rentcar.ma'
         firstName: 'Abdellatif'
         lastName: 'Cherkaoui'
@@ -71,7 +65,6 @@ App\Entity\User:
 
     # Utilisateurs pour Casablanca
     user_casa_1:
-        username: 'fatima.zahra'
         email: 'fatima.zahra@rentcar.ma'
         firstName: 'Fatima'
         lastName: 'Zahra'
@@ -82,7 +75,6 @@ App\Entity\User:
         agency: '@agency_casa_centre'
 
     user_casa_2:
-        username: 'omar.bennani'
         email: 'omar.bennani@rentcar.ma'
         firstName: 'Omar'
         lastName: 'Bennani'
@@ -94,7 +86,6 @@ App\Entity\User:
 
     # Utilisateurs pour Rabat
     user_rabat_1:
-        username: 'aicha.kadiri'
         email: 'aicha.kadiri@rentcar.ma'
         firstName: 'Aicha'
         lastName: 'Kadiri'
@@ -105,7 +96,6 @@ App\Entity\User:
         agency: '@agency_rabat_agdal'
 
     user_rabat_2:
-        username: 'hassan.tazi'
         email: 'hassan.tazi@rentcar.ma'
         firstName: 'Hassan'
         lastName: 'Tazi'
@@ -117,7 +107,6 @@ App\Entity\User:
 
     # Utilisateurs pour Marrakech
     user_marrakech_1:
-        username: 'nadia.chraibi'
         email: 'nadia.chraibi@rentcar.ma'
         firstName: 'Nadia'
         lastName: 'Chraibi'
@@ -129,7 +118,6 @@ App\Entity\User:
 
     # Utilisateurs pour Fès
     user_fes_1:
-        username: 'khadija.amrani'
         email: 'khadija.amrani@rentcar.ma'
         firstName: 'Khadija'
         lastName: 'Amrani'
@@ -141,7 +129,6 @@ App\Entity\User:
 
     # Utilisateurs pour Tanger
     user_tanger_1:
-        username: 'samira.bennani'
         email: 'samira.bennani@rentcar.ma'
         firstName: 'Samira'
         lastName: 'Bennani'
@@ -152,7 +139,6 @@ App\Entity\User:
         agency: '@agency_tanger_marina'
 
     user_tanger_2:
-        username: 'mustapha.idrissi'
         email: 'mustapha.idrissi@rentcar.ma'
         firstName: 'Mustapha'
         lastName: 'Idrissi'

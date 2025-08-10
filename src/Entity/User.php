@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity()]
 #[ORM\Table(name: 'users')]
-#[UniqueEntity(fields: ['username'], message: 'This username already exists.')]
 #[UniqueEntity(fields: ['email'], message: 'This email already exists.')]
 #[ORM\HasLifecycleCallbacks]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -20,20 +19,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 50, unique: true)]
-    #[Assert\NotBlank(message: 'Username is required')]
-    #[Assert\Length(
-        min: 3, 
-        max: 50, 
-        minMessage: 'Username must be at least {{ limit }} characters',
-        maxMessage: 'Username cannot exceed {{ limit }} characters'
-    )]
-    #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9_-]+$/', 
-        message: 'Username can only contain letters, numbers, underscores and hyphens'
-    )]
-    private ?string $username = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Email is required')]
@@ -99,20 +84,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-    public function getUsername(): ?string
-    {
-        return $this->username;
-    }
-
-    public function setUsername(string $username): static
-    {
-        $this->username = $username;
-        return $this;
-    }
-
     public function getUserIdentifier(): string
     {
-        return (string) $this->username;
+        return (string) $this->email;
     }
 
     public function getEmail(): ?string
