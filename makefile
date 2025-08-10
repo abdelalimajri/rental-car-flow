@@ -96,7 +96,7 @@ db-rollback: ## Rollback last migration
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console doctrine:migrations:migrate prev --no-interaction
 
 db-fixtures: ## Load database fixtures
-	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console doctrine:fixtures:load --no-interaction
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console hautelook:fixtures:load --no-interaction
 
 db-schema-update: ## Update database schema
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console doctrine:schema:update --force

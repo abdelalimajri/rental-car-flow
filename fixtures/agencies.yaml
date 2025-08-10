@@ -1,5 +1,4 @@
 App\Entity\Agency:
-    # Agences principales (données fixes)
     agency_casa_centre:
         name: 'RentCar Casablanca Centre'
         slug: 'casablanca-centre'
@@ -81,3 +80,4 @@ App\Entity\Agency:
             timezone: 'Africa/Casablanca'
             language: 'fr'
 
+    
