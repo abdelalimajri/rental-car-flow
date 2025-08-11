@@ -9,10 +9,15 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
+      # Optimisation : exclure les dossiers qui changent souvent
+      - /var/www/html/var
     depends_on:
       - postgres
     environment:
       - APP_ENV=dev
+      - APP_DEBUG=1
+    user: "1000:1000"  # Utiliser l'utilisateur www
+
 
   nginx:
     image: nginx:alpine
@@ -37,7 +42,6 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-  
 
   adminer:
     image: adminer
