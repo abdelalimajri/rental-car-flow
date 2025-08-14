@@ -1,0 +1,68 @@
+<!-- User Menu avec Dropdown -->
+{% if app.user %}
+<div class="relative" data-controller="dropdown">
+    <!-- Bouton du menu utilisateur -->
+    <button data-action="click->dropdown#toggle" 
+            data-dropdown-target="button"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        
+        <!-- User Avatar -->
+        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+            <span class="text-white text-sm font-medium">
+                {{ app.user.firstName|slice(0, 1)|upper }}{{ app.user.lastName|slice(0, 1)|upper }}
+            </span>
+        </div>
+        
+        <!-- User Name -->
+        <div class="hidden md:block">
+            <p class="text-sm font-medium text-gray-700">
+                {{ app.user.firstName }} {{ app.user.lastName }}
+            </p>
+        </div>
+
+        <!-- Chevron Icon -->
+        <svg data-dropdown-target="chevron" 
+             class="w-4 h-4 text-gray-400 transition-transform duration-200" 
+             fill="none" 
+             stroke="currentColor" 
+             viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+
+    <!-- Dropdown Menu -->
+    <div data-dropdown-target="menu" 
+         class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50 hidden">
+        
+        <!-- User Info dans le dropdown (mobile) -->
+        <div class="md:hidden px-4 py-3 border-b border-gray-100">
+            <p class="text-sm font-medium text-gray-900">
+                {{ app.user.firstName }} {{ app.user.lastName }}
+            </p>
+            <p class="text-xs text-gray-500">
+                {{ app.user.email }}
+            </p>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="py-1">
+            <!-- Edit Profile -->
+            <a href="" 
+               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <i class="fas fa-user-edit mr-3 text-gray-400"></i>
+                Modifier le profil
+            </a>
+
+            <!-- Separator -->
+            <div class="border-t border-gray-100 my-1"></div>
+
+            <!-- Logout -->
+            <a href="{{ path('app_logout') }}" 
+               class="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors">
+                <i class="fas fa-sign-out-alt mr-3"></i>
+                Déconnexion
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -31,7 +31,8 @@ help: ## Display this help message
 ##@ Docker Management
 build: ## Build Docker containers
 	@echo "$(BLUE)Building Docker containers...$(NC)"
-	$(DOCKER_COMPOSE) build
+	$(DOCKER_COMPOSE) build --no-cache
+
 
 up: ## Start all services
 	@echo "$(GREEN)Starting all services...$(NC)"
@@ -42,6 +43,18 @@ down: ## Stop all services
 	$(DOCKER_COMPOSE) down
 
 restart: down up ## Restart all services
+
+logs-assets:
+	@echo "👀 Logs de surveillance des assets:"
+	docker-compose logs -f asset-watcher
+
+compile-assets:
+	@echo "📦 Compilation manuelle des assets..."
+	docker-compose exec asset-watcher php bin/console asset-map:compile
+
+shell-watcher:
+	@echo "👀 Connexion au container asset-watcher..."
+	docker-compose exec asset-watcher bash
 
 rebuild: down build up ## Rebuild and restart all services
 
