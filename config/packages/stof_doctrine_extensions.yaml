@@ -2,17 +2,10 @@ stof_doctrine_extensions:
     default_locale: en_US
     orm:
         default:
-            # Timestamps automatiques
-            timestampable: true
-            
-            # Tracking des utilisateurs (created_by, updated_by)
-            blameable: true
-            
-            # Historique complet des modifications
+            timestampable: true            
+            blameable: true            
             loggable: true
-            
-            # Autres extensions utiles
-            sluggable: true
-            sortable: true
+            sluggable: false
+            sortable: false
             tree: false
             uploadable: false
