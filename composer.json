@@ -103,6 +103,7 @@
         }
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.86",
         "hautelook/alice-bundle": "^2.15.1",
         "phpunit/phpunit": "^11.5.32",
         "symfony/browser-kit": "7.3.*",

@@ -1,0 +1,15 @@
+App\Entity\Customer:
+  customer_{1..50}:
+    firstName: '<firstName()>'
+    lastName: '<lastName()>'
+    identityNumber: '<regexify("[A-Z]{1,2}[0-9]{6}")>'
+    drivingLicenseNumber: '<regexify("[A-Z]{2}[0-9]{6}")>'
+    licenseExpirationDate: '<dateTimeBetween("now", "+5 years")>'
+    birthDate: '<dateTimeBetween("-65 years", "-18 years")>'
+    phoneNumber: '<phoneNumber()>'
+    email: '<email()>'
+    active: true
+    address: '<address()>'
+    gender: '<randomElement(["M", "F"])>'
+    createdBy: 'system'
+    updatedBy: 'system'
