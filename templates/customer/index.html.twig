@@ -1,20 +1,83 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CustomerController!{% endblock %}
+{% set search_channel = 'customers' %}
+
+{% block title %}Liste des Clients - RentAuto{% endblock %}
 
 {% block content %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="space-y-4">
+    <div
+        data-controller="filters"
+        data-filters-channel-value="customers"
+        data-action="input->filters#onInput change->filters#onInput"
+        data-filters-open-value="false"
+        class="rounded-lg border border-gray-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+            <h3 class="text-sm font-semibold text-gray-800">Filtres</h3>
+            <button type="button"
+                    class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800"
+                    data-action="filters#toggle"
+                    data-filters-target="toggle"
+                    aria-expanded="false"
+                    aria-controls="customers-filters-content">
+                <span>Afficher/Masquer</span>
+                <svg data-filters-target="chevron" class="h-4 w-4 transition-transform duration-200 rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        <div id="customers-filters-content" class="p-4 hidden" data-filters-target="content">
+            <div class="grid gap-4 grid-cols-1 md:grid-cols-3">
+                <div class="flex flex-col gap-1">
+                    <label for="lastName" class="text-sm font-medium text-gray-700">Nom</label>
+                    <input id="lastName" name="lastName" type="text" placeholder="Ex: Dupont"
+                           class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="firstName" class="text-sm font-medium text-gray-700">Prénom</label>
+                    <input id="firstName" name="firstName" type="text" placeholder="Ex: Jean"
+                           class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                    <input id="email" name="email" type="text" placeholder="Ex: jean.dupont@mail.com"
+                           class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="identityNumber" class="text-sm font-medium text-gray-700">CIN</label>
+                    <input id="identityNumber" name="identityNumber" type="text" placeholder="Ex: AB123456"
+                           class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="phoneNumber" class="text-sm font-medium text-gray-700">Téléphone</label>
+                    <input id="phoneNumber" name="phoneNumber" type="text" placeholder="Ex: +212 6 12 34 56 78"
+                           class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="active" class="text-sm font-medium text-gray-700">Statut</label>
+                    <select id="active" name="active"
+                        class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none">
+                        <option value="">Tous</option>
+                        <option value="1">Actifs</option>
+                        <option value="0">Inactifs</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4">
+                <button type="button"
+                        class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        data-action="filters#clear">Réinitialiser</button>
+            </div>
+        </div>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/html/src/Controller/CustomerController.php</code></li>
-        <li>Your template at <code>/var/www/html/templates/customer/index.html.twig</code></li>
-    </ul>
+    <div
+        data-controller="customers-table"
+        data-customers-table-endpoint-value="/api/customers"
+        data-customers-table-channel-value="customers"
+        data-customers-table-placeholder-value="Aucun client"
+        data-customers-table-order-mapping-value='{"fullName":"lastName"}'
+        class="relative border border-gray-300 rounded-lg shadow-md p-2 bg-white">
+    </div>
 </div>
 {% endblock %}

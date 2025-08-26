@@ -25,4 +25,11 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'tabulator-tables' => [
+        'version' => '6.3.1',
+    ],
+    'tabulator-tables/dist/css/tabulator.min.css' => [
+        'version' => '6.3.1',
+        'type' => 'css',
+    ],
 ];

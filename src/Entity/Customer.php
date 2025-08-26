@@ -2,15 +2,45 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
 use App\Entity\Trait\AgencyTrait;
 use App\Enum\Gender;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\ApiPlatform\Filter\GlobalSearchFilter;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'customers')]
+
+#[ApiResource(
+    paginationItemsPerPage: 15,
+    paginationMaximumItemsPerPage: 30,
+    paginationClientItemsPerPage: true
+)]
+#[ApiFilter(SearchFilter::class, properties: [
+    'lastName' => 'ipartial',
+    'firstName' => 'ipartial',
+    'email' => 'ipartial',
+    'identityNumber' => 'ipartial',
+    'phoneNumber' => 'ipartial',
+    'gender' => 'exact',
+])]
+#[ApiFilter(BooleanFilter::class, properties: ['active'])]
+#[ApiFilter(OrderFilter::class, properties: [
+    'lastName', 'firstName', 'email', 'birthDate', 'createdAt',
+    'identityNumber', 'phoneNumber', 'active'
+])]
+#[ApiFilter(DateFilter::class, properties: ['birthDate', 'createdAt'])]
+#[ApiFilter(GlobalSearchFilter::class, properties: [
+    'fields' => ['lastName','firstName','email','identityNumber','phoneNumber']
+])]
 class Customer extends AbstractEntity
 {
     use AgencyTrait;
