@@ -105,6 +105,10 @@ db-reset: db-drop db-create ## Reset database (drop and recreate)
 db-migrate: ## Run database migrations
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console doctrine:migrations:migrate --no-interaction
 
+
+db-diff: ## Run database migrations
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console doctrine:migrations:diff --no-interaction
+
 db-rollback: ## Rollback last migration
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) php bin/console doctrine:migrations:migrate prev --no-interaction
 
@@ -118,6 +122,14 @@ db-backup: ## Backup database
 	@echo "$(BLUE)Creating database backup...$(NC)"
 	docker exec rental-car-flow-postgres pg_dump -U rental_user rental_car_flow_db > backup_$(shell date +%Y%m%d_%H%M%S).sql
 	@echo "$(GREEN)Database backup created!$(NC)"
+
+
+# Code Style
+cs-check: ## Check code style (dry-run)
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
+
+cs-fix: ## Fix code style
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE) vendor/bin/php-cs-fixer fix --verbose
 
 ##@ Code Generation
 make-entity: ## Create new entity (use: make make-entity NAME=EntityName)

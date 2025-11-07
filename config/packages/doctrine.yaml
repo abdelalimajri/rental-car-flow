@@ -24,6 +24,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+            gedmo_loggable:
+                type: attribute
+                dir: '%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Loggable/Entity'
+                prefix: 'Gedmo\Loggable\Entity'
+                alias: GedmoLoggable
         controller_resolver:
             auto_mapping: false
 

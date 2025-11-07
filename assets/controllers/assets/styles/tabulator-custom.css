@@ -1,0 +1,58 @@
+/* Conteneur global du tableau */
+.tabulator {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* En-tête */
+.tabulator .tabulator-header {
+  background-color: #f8fafc; /* gris clair */
+  font-weight: 600;
+  font-size: 16px;
+  color: #374151; /* gris foncé */
+}
+
+/* Lignes alternées */
+.tabulator-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.tabulator-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Hover sur les lignes */
+.tabulator-row:hover {
+  background-color: #eef6ff;
+}
+
+/* Icônes dans les actions */
+.tabulator .action-btn {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.tabulator .action-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Couleurs spécifiques */
+.action-edit {
+  color: #3b82f6; /* bleu */
+}
+.action-edit:hover {
+  color: #1d4ed8;
+}
+
+.action-delete {
+  color: #ef4444; /* rouge */
+}
+.action-delete:hover {
+  color: #b91c1c;
+}
