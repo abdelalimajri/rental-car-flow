@@ -1,0 +1,24 @@
+App\Entity\Car:
+  car_{1..40}:
+    registrationNumber: '<regexify("[A-Z]{2}-[0-9]{3}-[A-Z]{2}")>'
+    brand: '<randomElement(["Dacia","Renault","Peugeot","Volkswagen","Toyota","Hyundai","Kia","Skoda"])>'
+    model: '<randomElement(["Clio","208","Logan","Sandero","Yaris","i20","Rio","Fabia"])>'
+    year: '<numberBetween(2012, 2025)>'
+    category: '<randomElement(["economy","compact","midsize","suv"])>'
+    fuelType: '<randomElement(["petrol","diesel","hybrid"])>'
+    transmission: '<randomElement(["manual","automatic"])>'
+    color: '<safeColorName()>'
+    mileage: '<numberBetween(10000, 180000)>'
+    dailyRentalPrice: '<numberBetween(150, 900)>'
+    status: 'available'
+    active: true
+    isUnderMaintenance: false
+    lastServiceAt: '<dateTimeBetween("-12 months","-1 month")>'
+    insuranceExpirationDate: '<dateTimeBetween("now","+18 months")>'
+    acquisitionDate: '<dateTimeBetween("-5 years","-6 months")>'
+    seats: '<randomElement([5,5,5,7])>'
+    doors: 5
+    agency: '@agency_casa_centre'
+    createdBy: 'system'
+    updatedBy: 'system'
+
