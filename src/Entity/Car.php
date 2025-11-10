@@ -22,9 +22,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: \App\Repository\CarRepository::class)]
 #[ORM\Table(name: 'cars')]
 #[ApiResource(
+    paginationClientItemsPerPage: true,
     paginationItemsPerPage: 15,
-    paginationMaximumItemsPerPage: 30,
-    paginationClientItemsPerPage: true
+    paginationMaximumItemsPerPage: 30
 )]
 #[ApiFilter(SearchFilter::class, properties: [
     'registrationNumber' => 'ipartial',
