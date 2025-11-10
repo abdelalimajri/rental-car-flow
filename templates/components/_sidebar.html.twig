@@ -16,7 +16,7 @@
     <!-- Navigation Menu -->
     <nav class="flex-1 px-4 py-6 space-y-2">
         <!-- Dashboard -->
-        <a href="" 
+        <a href=""
            class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors {{ app.request.get('_route') == 'app_dashboard' ? 'bg-blue-600' : '' }}">
             <i class="fas fa-tachometer-alt mr-3"></i>
             <span>Tableau de bord</span>
@@ -24,21 +24,21 @@
 
         <!-- Clients -->
         <div x-data="{ open: {{ app.request.get('_route') starts with 'app_customer' ? 'true' : 'false' }} }">
-            <button @click="open = !open" 
+            <button @click="open = !open"
                     class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors">
                 <div class="flex items-center">
                     <i class="fas fa-users mr-3"></i>
                     <span>Clients</span>
                 </div>
-                <i class="fas fa-chevron-down transition-transform duration-200" 
+                <i class="fas fa-chevron-down transition-transform duration-200"
                    :class="{ 'rotate-180': open }"></i>
             </button>
             <div x-show="open" x-transition class="ml-6 mt-2 space-y-1">
-                <a href="{{ path('app_customer') }}" 
+                <a href="{{ path('app_customer') }}"
                    class="block px-4 py-2 rounded hover:bg-gray-800 text-sm {{ app.request.get('_route') == 'app_customer' ? 'text-blue-400' : 'text-gray-300' }}">
                     Liste des clients
                 </a>
-                <a href="" 
+                <a href=""
                    class="block px-4 py-2 rounded hover:bg-gray-800 text-sm {{ app.request.get('_route') == 'app_client_new' ? 'text-blue-400' : 'text-gray-300' }}">
                     Nouveau client
                 </a>
@@ -46,23 +46,23 @@
         </div>
 
         <!-- Véhicules -->
-        <div x-data="{ open: {{ app.request.get('_route') starts with 'app_vehicle' ? 'true' : 'false' }} }">
-            <button @click="open = !open" 
+        <div x-data="{ open: {{ app.request.get('_route') starts with 'app_car' ? 'true' : 'false' }} }">
+            <button @click="open = !open"
                     class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors">
                 <div class="flex items-center">
                     <i class="fas fa-car mr-3"></i>
                     <span>Véhicules</span>
                 </div>
-                <i class="fas fa-chevron-down transition-transform duration-200" 
+                <i class="fas fa-chevron-down transition-transform duration-200"
                    :class="{ 'rotate-180': open }"></i>
             </button>
             <div x-show="open" x-transition class="ml-6 mt-2 space-y-1">
-                <a href="" 
-                   class="block px-4 py-2 rounded hover:bg-gray-800 text-sm {{ app.request.get('_route') == 'app_vehicle_index' ? 'text-blue-400' : 'text-gray-300' }}">
+                <a href="{{ path('app_car_index') }}"
+                   class="block px-4 py-2 rounded hover:bg-gray-800 text-sm {{ app.request.get('_route') == 'app_car_index' ? 'text-blue-400' : 'text-gray-300' }}">
                     Liste des véhicules
                 </a>
-                <a href="" 
-                   class="block px-4 py-2 rounded hover:bg-gray-800 text-sm {{ app.request.get('_route') == 'app_vehicle_new' ? 'text-blue-400' : 'text-gray-300' }}">
+                <a href=""
+                   class="block px-4 py-2 rounded hover:bg-gray-800 text-sm {{ app.request.get('_route') == 'app_car_new' ? 'text-blue-400' : 'text-gray-300' }}">
                     Nouveau véhicule
                 </a>
             </div>
