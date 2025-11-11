@@ -31,6 +31,10 @@ doctrine:
                 alias: GedmoLoggable
         controller_resolver:
             auto_mapping: false
+        filters:
+            agency_filter:
+                class: App\Doctrine\Filter\AgencyFilter
+                enabled: true
 
 when@test:
     doctrine:
