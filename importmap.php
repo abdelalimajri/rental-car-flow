@@ -32,4 +32,27 @@ return [
         'version' => '6.3.1',
         'type' => 'css',
     ],
+    '@fortawesome/fontawesome-free' => [
+        'version' => '7.1.0',
+    ],
+    '@fortawesome/fontawesome-free/css/fontawesome.min.css' => [
+        'version' => '7.1.0',
+        'type' => 'css',
+    ],
+    '@fortawesome/fontawesome-free/css/solid.min.css' => [
+        'version' => '7.1.0',
+        'type' => 'css',
+    ],
+    '@fortawesome/fontawesome-free/css/regular.min.css' => [
+        'version' => '7.1.0',
+        'type' => 'css',
+    ],
+    '@fortawesome/fontawesome-free/css/brands.min.css' => [
+        'version' => '7.1.0',
+        'type' => 'css',
+    ],
+    '@fortawesome/fontawesome-free/css/all.min.css' => [
+        'version' => '7.1.0',
+        'type' => 'css',
+    ],
 ];
